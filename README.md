@@ -10,5 +10,4 @@ Currently covered scenarios include :
 * CI pipeline for running .Net Core 5 on Amazon EKS cluster 
 * RDS migration scenario from MySQl 8 on m5 instance type to MySQL on m6g instance type
 * RDS migration scenario from MySQl 5 on m5 instance type ->  in-place major version upgrade  MySQL 8 ->  to in-place instance change to m6g instance type
-
-
+* EKS cluster with sample ETL Spa running on Graviton2 instance type

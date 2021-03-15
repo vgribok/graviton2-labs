@@ -4,6 +4,6 @@ chapter: true
 weight: 40
 ---
 
-In this Chapter, we will restore a Gravioton2 MySQL RDS instance from a snapshor taken from a x86 MySQL RDS instance.
+In this Chapter, we will restore a Graviton2 MySQL RDS instance using a snapshot taken from a x86 MySQL RDS instance.
 
 

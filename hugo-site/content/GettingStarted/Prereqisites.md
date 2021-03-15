@@ -57,7 +57,31 @@ aws configure get default.region
 aws configure get default.account
 ```
 
-7. Prepare AWS CDK 
+7. SSH key 
+
+Run this command to generate SSH Key in Cloud9. This key will be used on the worker node instances to allow ssh access if necessary.
+
+```bash
+ssh-keygen
+```
+
+{{% notice tip %}}
+Press `enter` 3 times to take the default choices
+{{% /notice %}}
+
+Upload the public key to your EC2 region:
+
+```bash
+aws ec2 import-key-pair --key-name "graviton2key" --public-key-material file://~/.ssh/id_rsa.pub
+```
+
+If you got an error similar to `An error occurred (InvalidKey.Format) when calling the ImportKeyPair operation: Key is not in valid OpenSSH public key format` then you can try this command instead:
+
+```bash
+aws ec2 import-key-pair --key-name "graviton2key" --public-key-material fileb://~/.ssh/id_rsa.pub
+```
+
+8. Prepare AWS CDK 
 
 ```bash 
 python3 -m venv .venv
