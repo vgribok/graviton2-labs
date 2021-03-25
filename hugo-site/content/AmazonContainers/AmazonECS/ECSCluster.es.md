@@ -1,23 +1,23 @@
 ---
-title: "AmazonECS : Deploy Graviton2 ECS cluster"
+title: "AmazonECS : Implementando un cluster de ECS con instancias Graviton2"
 date: 2020-04-10T11:14:51-06:00
 weight: 80
 ---
 
 ![ECS Logo](/images/ecs.png)
 
-Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast container management service that makes it easy to run, stop, and manage containers on a cluster. 
-Your containers are defined in a task definition that you use to run individual tasks or tasks within a service. 
-Amazon ECS enables you to launch and stop your container-based applications by using simple API calls. 
-You can also retrieve the state of your cluster from a centralized service and have access to many familiar Amazon EC2 features.
+Amazon Elastic Container Service (Amazon ECS) es un servicio de manejo de contenedores altamente escalable y rápido que hace sencilla la ejecución, escalabilidad y el manejo de contenedores en un cluster. 
+Tus contenedores están definidos en una "definición de tarea" que utilizarás para ejecutar "tareas" individuales o "tareas" como parte de un "servicio".
+Amazon ECS te permite inicializar y detener tus aplicaciones basadas en contenedires utilizando llamadas de API muy simples. 
+Además, puedes conocer el estado de tu cluster desde un servicio centralizado y tienes acceso a muchas características de Amazon EC2 y VPC.
 
 
 {{% notice tip %}} 
-Make sure you complete Multi-architecture application build lab before starting this one. 
+Asegúrate de completar el laboratorio "Construcción multi-arquitectura de la aplicación" antes de iniciar esta sección. 
 {{% /notice %}}
 
 
-Start by reviewing the contents of the AmazonECS task definition in file graviton2-labs/graviton2/cs_graviton/ecs_graviton2.py
+Comienza revisando el contenido de la "definición de tarea" en el archivo: graviton2-labs/graviton2/cs_graviton/ecs_graviton2.py
 
 ```bash
 
@@ -47,16 +47,16 @@ Start by reviewing the contents of the AmazonECS task definition in file gravito
         )
 ```
 
-1. Deploy ECS cluster using CDK
+1. Crea el cluster de ECS utilizando Amazon CDK
 
 ```
 cdk deploy GravitonID-ecs
 ```
 
-2. Once the cluster and ECS task are available execute following commands to verify ELB endpoint for the service.
+2. Una vez el cluster y la "tarea" en Amazon ECS se encuentre disponible, ejecuta los siguientes comandos para verificar el endpoint de DNS del balanceador de carga asociado (Amazon ELB).
 
 {{% notice note %}} 
-It will take several minutes for the ELB to become healthy and start passing traffic to the pods. 
+Tomará varios minutos para que el balanceador de carga pase a estatus "saludable" y comience a enviarle tráfico a las "tareas". 
 {{% /notice %}}
 
 
@@ -64,11 +64,11 @@ It will take several minutes for the ELB to become healthy and start passing tra
 ECS_ELB=$(aws cloudformation describe-stacks --stack-name GravitonID-ecs --query "Stacks[0].Outputs[0].OutputValue" --output text)
 ```
 
-3. Test the cluster and verify your service using Graviton2 instance type.
+3. Prueba el clúster y verifica que tu servicio esté utilizando una instancia Graviton2.
 
 ```bash
 for i in {1..8}; do curl -m3 $ECS_ELB ; echo; done 
 
 ```
 
-You now have a fully wowking ECS cluster using Graviton2 instace type that is ready to use.
+Ahora tienes un cluster de ECS funcionando con instancias Graviton2!

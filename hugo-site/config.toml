@@ -1,4 +1,8 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
 theme = "hugo-theme-learn"
+[languages]
+  [languages.en]
+    languageName = "English"
+    weight = 10
+  [languages.es]
+    languageName = "Spanish"
+    weight = 20
