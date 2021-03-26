@@ -1,0 +1,32 @@
+#name - DNS-friendly name for the workshop. This will be used when generating the hosting URL (ie. https://my-first-workshop.workshops.aws/)
+name: graviton2-workshop
+#title - The title of your workshop
+title: Graviton2 workshop
+#description - A short description that will be displayed in search results
+description: Using Graviton2 instances with AWS services 
+#categories - Refer to official AWS categories covered by the workshop content here
+categories: 
+  - Networking
+  - Compute
+#services - Refer to the official AWS service names covered by the workshop content here
+services: 
+   - RDS
+   - EKS
+   - ECS
+   - Code Pipeline
+   - Code Commit
+   - Code Build
+   - ECR
+#level - Approximate skill level needed for this workshop
+level: 200 
+#duration - Estimated duration in minutes
+duration: 240
+#cost - Cost in USD. If the content is offered without cost, enter 0
+cost: 0 
+#author - Amazon alias of the primary author of the content
+author: mbz
+#audience - Names of the personas associated with this workshop
+audience: 
+  - IT Professional
+  - Developer
+  - Architect

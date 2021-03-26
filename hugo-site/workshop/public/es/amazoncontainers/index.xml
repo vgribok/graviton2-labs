@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Graviton2 y Contenedores on Graviton2</title>
+    <link>/es/amazoncontainers.html</link>
+    <description>Recent content in Graviton2 y Contenedores on Graviton2</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 10 Apr 2020 11:14:51 -0600</lastBuildDate><atom:link href="/es/amazoncontainers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Crear el pipeline de construcciÃ³n del contenedor</title>
+      <link>/es/amazoncontainers/creatingpipeline.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazoncontainers/creatingpipeline.html</guid>
+      <description>Comenzaremos creando un pipeline para construir imagenes de contenedor soportadas por mÃºltiples arquitecturas. El crear imagenes tanto para arquitecturas x86 como para arm64 nos permitirÃ¡n explorar el soporte nativo de los servicios de AWS para multi-arquitectura y nos permitirÃ¡ movernos a la opciÃ³n mÃ¡s Ã³ptima para nuestra carga de trabajo.
+El stack de CDJ que implementarÃ¡s crearÃ¡ un repositorio de cÃ³difo para la aplicaciÃ³n hecha en NodeJS y dos pasos de construcciÃ³n para crear las imagenes de contenedor para arquitecturas x86 como para arm64.</description>
+    </item>
+    
+    <item>
+      <title>ConstrucciÃ³n multi-arquitectura de la aplicaciÃ³n</title>
+      <link>/es/amazoncontainers/multiarchitecture.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazoncontainers/multiarchitecture.html</guid>
+      <description>Antes de iniciar este laboratorio, por favor asegÃºrate de trabajar en la carpeta graviton2-labs. Si no estas ahÃ­, cÃ¡mbiate a esa carpeta ejecutando el siguiente comando en tu terminal:  cd ~/environment/graviton2-labs/ Clona un repositorio vacÃ­o de CodeCommit ejecutando:  git clone `aws cloudformation describe-stacks --stack-name GravitonID-pipeline --query &amp;#34;Stacks[0].Outputs[0].OutputValue&amp;#34; --output text` Copia los archivos de especificaciÃ³n de code build y el cÃ³digo fuente de la aplicaciÃ³n hecha en NodeJS hacia el nuevo repositorio de CodeCommit.</description>
+    </item>
+    
+    <item>
+      <title>AmazonEKS : CreaciÃ³n de un cluster EKS multi-arquitectura</title>
+      <link>/es/amazoncontainers/amazoneks/ekscluster.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazoncontainers/amazoneks/ekscluster.html</guid>
+      <description>Amazon Elastic Kubernetes Service (Amazon EKS) es un servicio administrado que puedes utilizar para ejecutar Kubernetes en aws sin necesidad de instalar, operar y mantener tu propio plano de control o nodos de un clÃºster. Kubernetes es un sistema de cÃ³digo abierto para automatizar la implementaciÃ³n, escalabilidad y orquestaciÃ³n de aplicaciones containerizadas.
+ Revisa el contenido del stack de CDK localizado en el archivo graviton-labs/graviton2/cs_graviton/eks_graviton2.py. Este stack crearÃ¡ un cluster de EKS con dos nodegroups: un grupo para arquitectura x86 y otro para arquitectura ARM64   self.</description>
+    </item>
+    
+    <item>
+      <title>AmazonEKS : ImplementaciÃ³n de una aplicaciÃ³n multi-arquitectura</title>
+      <link>/es/amazoncontainers/amazoneks/k8sapplication.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazoncontainers/amazoneks/k8sapplication.html</guid>
+      <description>Ahora estamos listos para implementar una aplicaciÃ³n multi-arquitectura sobre kubernetes
+ Revisa el contenido del manifiesto de implementaciÃ³n de kubernetes en el archivo: graviton2-labs/graviton2/cs_graviton/Deployment.yaml  apiVersion: apps/v1 kind: Deployment metadata: name: multiarch-deployment namespace: multiarch labels: app: multiarch-app spec: replicas: 4 selector: matchLabels: app: multiarch-app template: metadata: labels: app: multiarch-app spec: affinity: nodeAffinity: requiredDuringSchedulingIgnoredDuringExecution: nodeSelectorTerms: - matchExpressions: - key: beta.kubernetes.io/arch operator: In values: - amd64 - arm64 podAntiAffinity: requiredDuringSchedulingIgnoredDuringExecution: - labelSelector: matchExpressions: - key: app operator: In values: - multiarch-app topologyKey: &amp;#34;kubernetes.</description>
+    </item>
+    
+    <item>
+      <title>AmazonEKS : Ejecutando aplicaciones hechas en ASP.NET Core sobre Graviton2</title>
+      <link>/es/amazoncontainers/amazoneks/aspnet.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazoncontainers/amazoneks/aspnet.html</guid>
+      <description>Una de las grandes fortalezas de la plataforma .NET Core es que .NET 5 tiene mejoras significativas en rendimiento y estÃ¡ listo para esfuerzos de modernizaciÃ³n escalables. Los clientes pueden tambiÃ©n elegir construir sus aplicaciones hechas en .NET Core utilizando el procesador AWS Graviton2. AWS es el Ãºnico proveedor de nube que ofrece la opciÃ³n de ejecutar cargas de trabajo en .NET sobre arquitecturas ARM64 Las instncias EC2 que son ejecutadas con AWS Graviton2 proveen hasta un 40% en mejora de precio/rendimiento sobre generaciones actuales de instancias basadas en x86.</description>
+    </item>
+    
+    <item>
+      <title>AmazonECS : Implementando un cluster de ECS con instancias Graviton2</title>
+      <link>/es/amazoncontainers/amazonecs/ecscluster.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazoncontainers/amazonecs/ecscluster.html</guid>
+      <description>Amazon Elastic Container Service (Amazon ECS) es un servicio de manejo de contenedores altamente escalable y rÃ¡pido que hace sencilla la ejecuciÃ³n, escalabilidad y el manejo de contenedores en un cluster. Tus contenedores estÃ¡n definidos en una &amp;ldquo;definiciÃ³n de tarea&amp;rdquo; que utilizarÃ¡s para ejecutar &amp;ldquo;tareas&amp;rdquo; individuales o &amp;ldquo;tareas&amp;rdquo; como parte de un &amp;ldquo;servicio&amp;rdquo;. Amazon ECS te permite inicializar y detener tus aplicaciones basadas en contenedires utilizando llamadas de API muy simples.</description>
+    </item>
+    
+    <item>
+      <title>Graviton2 y contenedores: Limpieza</title>
+      <link>/es/amazoncontainers/cleanup.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazoncontainers/cleanup.html</guid>
+      <description>Ejecuta los siguientes comandos para limpliar el ambiente de trabajo.
+cd ~/environment/graviton2-labs/ scripts/cs_cleanup.sh </description>
+    </item>
+    
+  </channel>
+</rss>

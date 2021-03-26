@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Getting Started on Graviton2</title>
+    <link>/en/gettingstarted.html</link>
+    <description>Recent content in Getting Started on Graviton2</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 10 Apr 2020 11:14:49 -0600</lastBuildDate><atom:link href="/en/gettingstarted/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prerequisites</title>
+      <link>/en/gettingstarted/prereqisites.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:49 -0600</pubDate>
+      
+      <guid>/en/gettingstarted/prereqisites.html</guid>
+      <description>In your Cloud 9 environment, clone the Git repo:  git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/graviton2-labs cd graviton2-labs Upgrade AWS CLI according to guidance in AWS documentation.  sudo pip install --upgrade awscli &amp;amp;&amp;amp; hash -r Install jq, envsubst (from GNU gettext utilities) and bash-completion  sudo yum -y install jq gettext bash-completion moreutils Install mysql client and libraries  sudo yum -y localinstall https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm sudo yum -y install mysql-community-client mysql-community-libs Install the required Kubernetes tools for interacting with the EKS cluster.</description>
+    </item>
+    
+  </channel>
+</rss>

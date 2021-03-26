@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Graviton2 and big data on Graviton2</title>
+    <link>/en/amazonemr.html</link>
+    <description>Recent content in Graviton2 and big data on Graviton2</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language><atom:link href="/en/amazonemr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating EMR Claster with Graviton2 instanaces</title>
+      <link>/en/amazonemr/creatingcluster.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/amazonemr/creatingcluster.html</guid>
+      <description>Create S3 bucket for EMR jobs.  cd ~/environment/graviton2-labs source scripts/create_emr_buckets.sh Execute following command to create EMR cluster in your default VPC.  export EMR_CLUSTER_ID=$(aws emr create-cluster --name test-emr-cluster --use-default-roles --release-label emr-6.1.0 --instance-count 3 --instance-type m6g.xlarge --applications Name=JupyterHub Name=Spark --ec2-attributes KeyName=graviton2key | jq -r &amp;#39;.ClusterId&amp;#39;); echo &amp;#34;Your cluster ID is = $EMR_CLUSTER_ID&amp;#34; Authorize SSH connection from Cloud9 instance.  export C9_PRIVATEIP=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r &amp;#39;.privateIp&amp;#39;) export EMR_MASTER_SG=$(aws emr describe-cluster --cluster-id $EMR_CLUSTER_ID | jq -r &amp;#39;.</description>
+    </item>
+    
+    <item>
+      <title>EMR Cleanup</title>
+      <link>/en/amazonemr/cleanup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/amazonemr/cleanup.html</guid>
+      <description>To cleanup the EMR cluster please execute following command :
+aws emr terminate-clusters --cluster-ids $EMR_CLUSTER_ID After reviewing the contents of S3 bucket you can elect to empty and delete job outputs via AWS S3 console or using CLI.</description>
+    </item>
+    
+  </channel>
+</rss>

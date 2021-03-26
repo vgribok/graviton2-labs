@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IntroducciÃ³n on Graviton2</title>
+    <link>/es/gettingstarted.html</link>
+    <description>Recent content in IntroducciÃ³n on Graviton2</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 10 Apr 2020 11:14:49 -0600</lastBuildDate><atom:link href="/es/gettingstarted/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prerequisitos</title>
+      <link>/es/gettingstarted/prereqisites.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:49 -0600</pubDate>
+      
+      <guid>/es/gettingstarted/prereqisites.html</guid>
+      <description>En tu ambiente de Cloud9 clona el siguiente repositorio de Git:  git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/graviton2-labs cd graviton2-labs Actualiza la AWS CLI de acuerdo a la guia en la documentaciÃ³n AWS documentation.  sudo pip install --upgrade awscli &amp;amp;&amp;amp; hash -r Instala jq, envsubst (de las utilerÃ­as de GNU gettext), tambÃ­en instala bash-completion.  sudo yum -y install jq gettext bash-completion moreutils Instala el cliente de mysql y sus librerias.  sudo yum -y localinstall https://dev.</description>
+    </item>
+    
+  </channel>
+</rss>

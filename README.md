@@ -15,9 +15,9 @@ Currently covered scenarios include :
 To launch Workshop in Cloud9 environment install Hugo from Fedora project:
 
 ```
-sudo wget https://copr.fedorainfracloud.org/coprs/daftaupe/hugo/repo/epel-7/daftaupe-hugo-epel-7.repo -O hugo.repo
-yum update
-yum install hugo
+sudo wget https://copr.fedorainfracloud.org/coprs/daftaupe/hugo/repo/epel-7/daftaupe-hugo-epel-7.repo -O /etc/yum.repos.d/hugo.repo
+sudo yum update
+sudo yum install hugo
 ```
 
 For more information, and instructions for other operating systems please visit : https://gohugo.io/getting-started/installing/
@@ -25,7 +25,7 @@ For more information, and instructions for other operating systems please visit 
 Once Hugo is installed you can start Hugo server using following commands : 
 
 ```
-cd graviton2-labs/hugo-site
+cd graviton2-labs/hugo-site/workshop
 hugo -v server
 ```
 

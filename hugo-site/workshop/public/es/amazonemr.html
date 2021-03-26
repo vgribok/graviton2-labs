@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+<html lang="es" class="js csstransforms3d">
+<head>
+  <meta charset="utf-8">
+  <meta property="og:title" content="Graviton2" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="description" content="My AWS Workshop">
+<meta name="author" content="Amazon AWS">
+
+  <link rel="shortcut icon" href="https://a0.awsstatic.com/libra-css/images/site/fav/favicon.ico" type="image/ico" />
+<link rel="icon" href="https://a0.awsstatic.com/libra-css/images/site/fav/favicon.ico" type="image/ico" />
+
+  <title>Graviton2 y Big Data :: Graviton2</title>
+
+  
+  <link href="../css/nucleus.css" rel="stylesheet">
+  <link href="../css/fontawesome-all.min.css" rel="stylesheet">
+  <link href="../css/hybrid.css" rel="stylesheet">
+  <link href="../css/featherlight.min.css" rel="stylesheet">
+  <link href="../css/perfect-scrollbar.min.css" rel="stylesheet">
+  <link href="../css/auto-complete.css" rel="stylesheet">
+  <link href="../css/atom-one-dark-reasonable.css" rel="stylesheet">
+  <link href="../css/theme.css" rel="stylesheet">
+  <link href="../css/hugo-theme.css" rel="stylesheet">
+  
+  <link href="../css/theme-aws.css" rel="stylesheet">
+  
+
+  <script src="../js/jquery-3.5.1.min.js"></script>
+
+  <style>
+    :root #header + #content > #left > #rlblock_left{
+        display:none !important;
+    }
+    
+      :not(pre) > code + span.copy-to-clipboard {
+          display: none;
+      }
+    
+  </style>
+  
+</head>
+
+<body class="" data-url="../es/amazonemr.html">
+  <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <div>
+    <a href="../" title="Go home">
+        <img style="vertical-align:middle" src="https://fonts.workshops.aws/logos/logo.png" height="70px" />
+    </a>
+</div>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Buscar...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../js/lunr.min.js"></script>
+<script type="text/javascript" src="../js/auto-complete.js"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/es";
+    
+</script>
+<script type="text/javascript" src="../js/search.js"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/es/gettingstarted.html" title="IntroducciÃ³n" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../es/gettingstarted.html">
+          IntroducciÃ³n
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/es/gettingstarted/prereqisites.html" title="Prerequisitos" class="dd-item ">
+        <a href="../es/gettingstarted/prereqisites.html">
+        Prerequisitos
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/es/amazonrds.html" title="Graviton2 y Bases de Datos" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../es/amazonrds.html">
+          Graviton2 y Bases de Datos
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/es/amazonrds/01_snapshot.html" title="OpciÃ³n 1: Restaurar una base de datos Graviton2 con MySQL en RDS a partir de un snapshot x86" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../es/amazonrds/01_snapshot.html">
+          OpciÃ³n 1: Restaurar una base de datos Graviton2 con MySQL en RDS a partir de un snapshot x86
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/es/amazonrds/01_snapshot/creatingcluster8.html" title="Crear la instancia de RDS MySQL" class="dd-item ">
+        <a href="../es/amazonrds/01_snapshot/creatingcluster8.html">
+        Crear la instancia de RDS MySQL
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/es/amazonrds/01_snapshot/loadingdata.html" title="Importar Datos de prueba a MySQL" class="dd-item ">
+        <a href="../es/amazonrds/01_snapshot/loadingdata.html">
+        Importar Datos de prueba a MySQL
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/es/amazonrds/01_snapshot/restoringrds.html" title="RecuperaciÃ³n del snapshot de la instancia con Graviton2" class="dd-item ">
+        <a href="../es/amazonrds/01_snapshot/restoringrds.html">
+        RecuperaciÃ³n del snapshot de la instancia con Graviton2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/es/amazonrds/02_upgrade.html" title="OpciÃ³n 2 : Actualizar la versiÃ³n de MySQL RDS" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../es/amazonrds/02_upgrade.html">
+          OpciÃ³n 2 : Actualizar la versiÃ³n de MySQL RDS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/es/amazonrds/02_upgrade/creatingcluster5.html" title="Crear la instancia de RDS MySQL" class="dd-item ">
+        <a href="../es/amazonrds/02_upgrade/creatingcluster5.html">
+        Crear la instancia de RDS MySQL
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/es/amazonrds/02_upgrade/loadingdata.html" title="Importar Datos de prueba a MySQL" class="dd-item ">
+        <a href="../es/amazonrds/02_upgrade/loadingdata.html">
+        Importar Datos de prueba a MySQL
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/es/amazonrds/02_upgrade/upgradingmysq.html" title="Actualizando la version del motor de MySQL RDS" class="dd-item ">
+        <a href="../es/amazonrds/02_upgrade/upgradingmysq.html">
+        Actualizando la version del motor de MySQL RDS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/es/amazonrds/02_upgrade/modyfyinginstancetype.html" title="Cambiando el tipo de instancia a Graviton2" class="dd-item ">
+        <a href="../es/amazonrds/02_upgrade/modyfyinginstancetype.html">
+        Cambiando el tipo de instancia a Graviton2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/es/amazoncontainers.html" title="Graviton2 y Contenedores" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../es/amazoncontainers.html">
+          Graviton2 y Contenedores
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/es/amazoncontainers/creatingpipeline.html" title="Crear el pipeline de construcciÃ³n del contenedor" class="dd-item ">
+        <a href="../es/amazoncontainers/creatingpipeline.html">
+        Crear el pipeline de construcciÃ³n del contenedor
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/es/amazoncontainers/multiarchitecture.html" title="ConstrucciÃ³n multi-arquitectura de la aplicaciÃ³n" class="dd-item ">
+        <a href="../es/amazoncontainers/multiarchitecture.html">
+        ConstrucciÃ³n multi-arquitectura de la aplicaciÃ³n
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/es/amazoncontainers/amazoneks/ekscluster.html" title="AmazonEKS : CreaciÃ³n de un cluster EKS multi-arquitectura" class="dd-item ">
+        <a href="../es/amazoncontainers/amazoneks/ekscluster.html">
+        AmazonEKS : CreaciÃ³n de un cluster EKS multi-arquitectura
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/es/amazoncontainers/amazoneks/k8sapplication.html" title="AmazonEKS : ImplementaciÃ³n de una aplicaciÃ³n multi-arquitectura" class="dd-item ">
+        <a href="../es/amazoncontainers/amazoneks/k8sapplication.html">
+        AmazonEKS : ImplementaciÃ³n de una aplicaciÃ³n multi-arquitectura
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/es/amazoncontainers/amazoneks/aspnet.html" title="AmazonEKS : Ejecutando aplicaciones hechas en ASP.NET Core sobre Graviton2" class="dd-item ">
+        <a href="../es/amazoncontainers/amazoneks/aspnet.html">
+        AmazonEKS : Ejecutando aplicaciones hechas en ASP.NET Core sobre Graviton2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/es/amazoncontainers/amazonecs/ecscluster.html" title="AmazonECS : Implementando un cluster de ECS con instancias Graviton2" class="dd-item ">
+        <a href="../es/amazoncontainers/amazonecs/ecscluster.html">
+        AmazonECS : Implementando un cluster de ECS con instancias Graviton2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/es/amazoncontainers/cleanup.html" title="Graviton2 y contenedores: Limpieza" class="dd-item ">
+        <a href="../es/amazoncontainers/cleanup.html">
+        Graviton2 y contenedores: Limpieza
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/es/amazonemr.html" title="Graviton2 y Big Data" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="../es/amazonemr.html">
+          Graviton2 y Big Data
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/es/amazonemr/creatingcluster.html" title="Creando un Cluster de Amazon EMR con instancias Graviton2" class="dd-item ">
+        <a href="../es/amazonemr/creatingcluster.html">
+        Creando un Cluster de Amazon EMR con instancias Graviton2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/es/amazonemr/cleanup.html" title="Limpieza del laboratorio de EMR" class="dd-item ">
+        <a href="../es/amazonemr/cleanup.html">
+        Limpieza del laboratorio de EMR
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/en/amazonemr.html">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="es" value="/es/amazonemr.html" selected>Spanish</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+
+    <a href="https://aws.amazon.com/privacy/?nc1=f_pr">Privacy</a> | <a href="https://aws.amazon.com/terms/?nc1=f_pr">Site Terms</a> | © 2021, Amazon Web Services, Inc. or its affiliates. All rights reserved. 
+
+</left>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+  <section id="body">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        <div id="top-bar">
+          
+          
+          <div id="breadcrumbs" itemscope="" itemtype="https://data-vocabulary.org/Breadcrumb">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                <i class="fa fa-bars"></i>
+              </a>
+            </span>
+            
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          <a href='../es/'>OptimizaciÃ³n de costos con servicios basados en AWS Graviton2</a> > Graviton2 y Big Data
+          
+          
+          
+          
+            </span>
+          </div>
+          
+        </div>
+      </div>
+      
+
+      
+      <div id="chapter">
+        
+        <div id="body-inner">
+          <h1>Graviton2 y Big Data</h1>
+          
+          
+
+
+	<p>En este capÃ­tulo exploraremos la ejecuciÃ³n de un cluster de Amazon EMR en instancias Graviton2. EMR soporta nativamente instancias Graviton2, asÃ­ que en este escenario nos enfocaremos en ejecutar un job de Spark.</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+            </div> 
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../es/amazoncontainers/cleanup.html" title="Graviton2 y contenedores: Limpieza"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../es/amazonemr/creatingcluster.html" title="Creando un Cluster de Amazon EMR con instancias Graviton2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../js/clipboard.min.js"></script>
+    <script src="../js/perfect-scrollbar.min.js"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../js/jquery.sticky.js"></script>
+    <script src="../js/featherlight.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../js/modernizr.custom-3.6.0.js"></script>
+    <script src="../js/learn.js"></script>
+    <script src="../js/hugo-learn.js"></script>
+    
+        
+            <script src="../mermaid/mermaid.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+  </body>
+</html>

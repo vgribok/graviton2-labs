@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Graviton2 and containers on Graviton2</title>
+    <link>/en/amazoncontainers.html</link>
+    <description>Recent content in Graviton2 and containers on Graviton2</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 10 Apr 2020 11:14:51 -0600</lastBuildDate><atom:link href="/en/amazoncontainers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create container build pipeline</title>
+      <link>/en/amazoncontainers/creatingpipeline.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazoncontainers/creatingpipeline.html</guid>
+      <description>We will start by creating a pipeline for building multi-architecture container images. Creating images for both x86 and arm64 architectures will allow us to explore native multi-architecture support in AWS services and freely choose between the most optimal compute option for the workload.
+The CDK stack you will deploy will create a source code repository for the NodeJS application and two build steps to create container images for x86 and arm64 architectures.</description>
+    </item>
+    
+    <item>
+      <title>Multi-architecture application build</title>
+      <link>/en/amazoncontainers/multiarchitecture.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazoncontainers/multiarchitecture.html</guid>
+      <description>Before we start this lab, please make sure you are working in your graviton2-labs folder. If you are not, please change to the folder by executing the following command in your bash shell :  cd ~/environment/graviton2-labs/ Clone an empty CodeCommit repo by executing :  git clone `aws cloudformation describe-stacks --stack-name GravitonID-pipeline --query &amp;#34;Stacks[0].Outputs[0].OutputValue&amp;#34; --output text` Copy code build specification files and NodeJS application source code to the new git repo.</description>
+    </item>
+    
+    <item>
+      <title>AmazonEKS : Deploy multi-architecture EKS cluster</title>
+      <link>/en/amazoncontainers/amazoneks/ekscluster.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazoncontainers/amazoneks/ekscluster.html</guid>
+      <description>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that you can use to run Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes. Kubernetes is an open-source system for automating the deployment, scaling, and management of containerized applications.
+ Start by reviewing the contents of the CDK stack definition in file graviton-labs/graviton2/cs_graviton/eks_graviton2.py. This stack will create an EKS cluster with two nodegroups: x86-node-group and arm64-node-group.</description>
+    </item>
+    
+    <item>
+      <title>AmazonEKS : Deploy a multi-architecture application</title>
+      <link>/en/amazoncontainers/amazoneks/k8sapplication.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazoncontainers/amazoneks/k8sapplication.html</guid>
+      <description>Now you&amp;rsquo;re ready to deploy a multi-architecture Kubernetes Application.
+ Start by reviewing contents of the Kubernetes deployment manifest in file graviton2-labs/graviton2/cs_graviton/Deployment.yaml  apiVersion: apps/v1 kind: Deployment metadata: name: multiarch-deployment namespace: multiarch labels: app: multiarch-app spec: replicas: 4 selector: matchLabels: app: multiarch-app template: metadata: labels: app: multiarch-app spec: affinity: nodeAffinity: requiredDuringSchedulingIgnoredDuringExecution: nodeSelectorTerms: - matchExpressions: - key: beta.kubernetes.io/arch operator: In values: - amd64 - arm64 podAntiAffinity: requiredDuringSchedulingIgnoredDuringExecution: - labelSelector: matchExpressions: - key: app operator: In values: - multiarch-app topologyKey: &amp;#34;kubernetes.</description>
+    </item>
+    
+    <item>
+      <title>AmazonEKS : Running ASP.NET Core application on Graviton2</title>
+      <link>/en/amazoncontainers/amazoneks/aspnet.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazoncontainers/amazoneks/aspnet.html</guid>
+      <description>One of the great strengths of the .NET Core platform .NET 5 is signifcant improvement in runtime performance and that .NET is ready for scalable modernization efforts. Customers can also choose to build their .NET Core platform with AWS purpose-built AWS Graviton2 Processor. AWS is the only major cloud provider that enables .NET 5 an ARM64 architecture option today. Amazon EC2 instances running AWS Graviton2 provide up to 40% better price performance over comparable current generation x86-based instances.</description>
+    </item>
+    
+    <item>
+      <title>AmazonECS : Deploy Graviton2 ECS cluster</title>
+      <link>/en/amazoncontainers/amazonecs/ecscluster.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazoncontainers/amazonecs/ecscluster.html</guid>
+      <description>Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast container management service that makes it easy to run, stop, and manage containers on a cluster. Your containers are defined in a task definition that you use to run individual tasks or tasks within a service. Amazon ECS enables you to launch and stop your container-based applications by using simple API calls. You can also retrieve the state of your cluster from a centralized service and have access to many familiar Amazon EC2 features.</description>
+    </item>
+    
+    <item>
+      <title>Graviton2 and Containers: Cleanup</title>
+      <link>/en/amazoncontainers/cleanup.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazoncontainers/cleanup.html</guid>
+      <description>Execute following commands to clean up the environment.
+cd ~/environment/graviton2-labs/ scripts/cs_cleanup.sh </description>
+    </item>
+    
+  </channel>
+</rss>

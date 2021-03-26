@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Option 2 : MySQL RDS upgrade on Graviton2</title>
+    <link>/en/amazonrds/02_upgrade.html</link>
+    <description>Recent content in Option 2 : MySQL RDS upgrade on Graviton2</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 10 Apr 2020 11:14:51 -0600</lastBuildDate><atom:link href="/en/amazonrds/02_upgrade/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create RDS MySQL instance</title>
+      <link>/en/amazonrds/02_upgrade/creatingcluster5.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazonrds/02_upgrade/creatingcluster5.html</guid>
+      <description>Start by reviewing contents of the RDS MySQL 5 task definition in file labs/rds_graviton/rds_mysql_5.py
+ db_mysql5 = rds.DatabaseInstance(self, &amp;quot;MySQL5&amp;quot;, engine=rds.DatabaseInstanceEngine.mysql( version=rds.MysqlEngineVersion.VER_5_7_31 ), instance_type=ec2.InstanceType(&amp;quot;m5.4xlarge&amp;quot;), vpc=vpc, multi_az=False, publicly_accessible=True, allocated_storage=100, storage_type=rds.StorageType.GP2, cloudwatch_logs_exports=[&amp;quot;audit&amp;quot;, &amp;quot;error&amp;quot;, &amp;quot;general&amp;quot;, &amp;quot;slowquery&amp;quot;], deletion_protection=False, enable_performance_insights=True, delete_automated_backups=True, backup_retention=core.Duration.days(1), parameter_group=rds.ParameterGroup.from_parameter_group_name( self, &amp;quot;para-group-mysql&amp;quot;, parameter_group_name=&amp;quot;default.mysql5.7&amp;quot; ) )  Use of AWS Cloud Development Kit (CDK) greatly simplifies instantiation of AWS services such as Amazon RDS. Above Python code fragment allows you instantiate single-AZ RDS MySQL 5 instance with 100GB GP2 Amazon EBS volume.</description>
+    </item>
+    
+    <item>
+      <title>Import Sample Database</title>
+      <link>/en/amazonrds/02_upgrade/loadingdata.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazonrds/02_upgrade/loadingdata.html</guid>
+      <description>Before we start this lab, please make sure you are working in your graviton2-labs folder. If you are not, please change to the folder by executing the following command in your bash shell :  cd ~/environment/graviton2-labs/ We&amp;rsquo;ll start by cloning a sample database for MySQL.
+git clone https://github.com/datacharmer/test_db.git cd test_db After you have done this, please connect to your MySQL instance. Run the following command to connect to your MySQL instance:  mysql -h $DBHOST -P $DBPORT -u$DBUSER -p$DBPASS If you are experiencing log in issues due to the lack of environment variables, please use the following commands to set the credentials.</description>
+    </item>
+    
+    <item>
+      <title>Upgrading RDS MySQL database version</title>
+      <link>/en/amazonrds/02_upgrade/upgradingmysq.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazonrds/02_upgrade/upgradingmysq.html</guid>
+      <description>When Amazon RDS starts supporting a new version of a database engine, you can upgrade your DB instances to the new version. There are two kinds of upgrades for MySQL DB instances: major version upgrades and minor version upgrades.
+Major version upgrades can contain database changes that are not backward-compatible with existing applications. As a result, you must manually perform major version upgrades of your DB instances. You can initiate a major version upgrade by modifying your DB instance.</description>
+    </item>
+    
+    <item>
+      <title>Changing instance to Graviton2</title>
+      <link>/en/amazonrds/02_upgrade/modyfyinginstancetype.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazonrds/02_upgrade/modyfyinginstancetype.html</guid>
+      <description>You can change the settings of a DB instance to accomplish tasks such as adding additional storage or changing the DB instance class. This includes switchin from x86 instances to Graviton2 instance type.
+We recommend that you test any changes on a test instance before modifying a production instance, so that you fully understand the impact of each change. As mentioned in previous chapter, testing is especially important when upgrading database versions.</description>
+    </item>
+    
+  </channel>
+</rss>

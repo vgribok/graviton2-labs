@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Optimizing cost with AWS Graviton2 based services on Graviton2</title>
+    <link>/en/</link>
+    <description>Recent content in Optimizing cost with AWS Graviton2 based services on Graviton2</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 29 Jul 2020 13:28:27 -0600</lastBuildDate><atom:link href="/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create container build pipeline</title>
+      <link>/en/amazoncontainers/creatingpipeline.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazoncontainers/creatingpipeline.html</guid>
+      <description>We will start by creating a pipeline for building multi-architecture container images. Creating images for both x86 and arm64 architectures will allow us to explore native multi-architecture support in AWS services and freely choose between the most optimal compute option for the workload.
+The CDK stack you will deploy will create a source code repository for the NodeJS application and two build steps to create container images for x86 and arm64 architectures.</description>
+    </item>
+    
+    <item>
+      <title>Create RDS MySQL instance</title>
+      <link>/en/amazonrds/01_snapshot/creatingcluster8.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazonrds/01_snapshot/creatingcluster8.html</guid>
+      <description>Start by reviewing contents of the RDS MySQL 8 CDK stack definition in file graviton2_labs/rds_graviton/rds_mysql_8.py
+ db_mysql8 = rds.DatabaseInstance(self, &amp;quot;MySQL8&amp;quot;, engine=rds.DatabaseInstanceEngine.mysql( version=rds.MysqlEngineVersion.VER_8_0_21 ), instance_type=ec2.InstanceType(&amp;quot;m5.4xlarge&amp;quot;), vpc=vpc, multi_az=False, publicly_accessible=True, allocated_storage=100, storage_type=rds.StorageType.IO1, iops=5000, cloudwatch_logs_exports=[&amp;quot;error&amp;quot;, &amp;quot;general&amp;quot;, &amp;quot;slowquery&amp;quot;], deletion_protection=False, enable_performance_insights=True, delete_automated_backups=True, backup_retention=core.Duration.days(1), parameter_group=rds.ParameterGroup.from_parameter_group_name( self, &amp;quot;para-group-mysql&amp;quot;, parameter_group_name=&amp;quot;default.mysql8.0&amp;quot; ) )  Use of AWS Cloud Development Kit (CDK) greatly simplifies instantiation of AWS services such as Amazon RDS. Above Python code fragment allows you instantiate single-AZ RDS MySQL 8 instance with 100GB IO1 Amazon EBS volume.</description>
+    </item>
+    
+    <item>
+      <title>Create RDS MySQL instance</title>
+      <link>/en/amazonrds/02_upgrade/creatingcluster5.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazonrds/02_upgrade/creatingcluster5.html</guid>
+      <description>Start by reviewing contents of the RDS MySQL 5 task definition in file labs/rds_graviton/rds_mysql_5.py
+ db_mysql5 = rds.DatabaseInstance(self, &amp;quot;MySQL5&amp;quot;, engine=rds.DatabaseInstanceEngine.mysql( version=rds.MysqlEngineVersion.VER_5_7_31 ), instance_type=ec2.InstanceType(&amp;quot;m5.4xlarge&amp;quot;), vpc=vpc, multi_az=False, publicly_accessible=True, allocated_storage=100, storage_type=rds.StorageType.GP2, cloudwatch_logs_exports=[&amp;quot;audit&amp;quot;, &amp;quot;error&amp;quot;, &amp;quot;general&amp;quot;, &amp;quot;slowquery&amp;quot;], deletion_protection=False, enable_performance_insights=True, delete_automated_backups=True, backup_retention=core.Duration.days(1), parameter_group=rds.ParameterGroup.from_parameter_group_name( self, &amp;quot;para-group-mysql&amp;quot;, parameter_group_name=&amp;quot;default.mysql5.7&amp;quot; ) )  Use of AWS Cloud Development Kit (CDK) greatly simplifies instantiation of AWS services such as Amazon RDS. Above Python code fragment allows you instantiate single-AZ RDS MySQL 5 instance with 100GB GP2 Amazon EBS volume.</description>
+    </item>
+    
+    <item>
+      <title>Creating EMR Claster with Graviton2 instanaces</title>
+      <link>/en/amazonemr/creatingcluster.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/amazonemr/creatingcluster.html</guid>
+      <description>Create S3 bucket for EMR jobs.  cd ~/environment/graviton2-labs source scripts/create_emr_buckets.sh Execute following command to create EMR cluster in your default VPC.  export EMR_CLUSTER_ID=$(aws emr create-cluster --name test-emr-cluster --use-default-roles --release-label emr-6.1.0 --instance-count 3 --instance-type m6g.xlarge --applications Name=JupyterHub Name=Spark --ec2-attributes KeyName=graviton2key | jq -r &amp;#39;.ClusterId&amp;#39;); echo &amp;#34;Your cluster ID is = $EMR_CLUSTER_ID&amp;#34; Authorize SSH connection from Cloud9 instance.  export C9_PRIVATEIP=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r &amp;#39;.privateIp&amp;#39;) export EMR_MASTER_SG=$(aws emr describe-cluster --cluster-id $EMR_CLUSTER_ID | jq -r &amp;#39;.</description>
+    </item>
+    
+    <item>
+      <title>Import Sample Database</title>
+      <link>/en/amazonrds/01_snapshot/loadingdata.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazonrds/01_snapshot/loadingdata.html</guid>
+      <description>Before we start this lab, please make sure you are working in your graviton2-labs folder. If you are not, please change to the folder by executing the following command in your bash shell :  cd ~/environment/graviton2-labs/ We&amp;rsquo;ll start by cloning a sample database for MySQL.
+git clone https://github.com/datacharmer/test_db.git cd test_db After you have done this, please connect to your MySQL instance. Run the following command to connect to your MySQL instance:  mysql -h $DBHOST -P $DBPORT -u$DBUSER -p$DBPASS If you are experiencing log in issues due to the lack of environment variables, please use the following commands to set the credentials.</description>
+    </item>
+    
+    <item>
+      <title>Import Sample Database</title>
+      <link>/en/amazonrds/02_upgrade/loadingdata.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazonrds/02_upgrade/loadingdata.html</guid>
+      <description>Before we start this lab, please make sure you are working in your graviton2-labs folder. If you are not, please change to the folder by executing the following command in your bash shell :  cd ~/environment/graviton2-labs/ We&amp;rsquo;ll start by cloning a sample database for MySQL.
+git clone https://github.com/datacharmer/test_db.git cd test_db After you have done this, please connect to your MySQL instance. Run the following command to connect to your MySQL instance:  mysql -h $DBHOST -P $DBPORT -u$DBUSER -p$DBPASS If you are experiencing log in issues due to the lack of environment variables, please use the following commands to set the credentials.</description>
+    </item>
+    
+    <item>
+      <title>Multi-architecture application build</title>
+      <link>/en/amazoncontainers/multiarchitecture.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazoncontainers/multiarchitecture.html</guid>
+      <description>Before we start this lab, please make sure you are working in your graviton2-labs folder. If you are not, please change to the folder by executing the following command in your bash shell :  cd ~/environment/graviton2-labs/ Clone an empty CodeCommit repo by executing :  git clone `aws cloudformation describe-stacks --stack-name GravitonID-pipeline --query &amp;#34;Stacks[0].Outputs[0].OutputValue&amp;#34; --output text` Copy code build specification files and NodeJS application source code to the new git repo.</description>
+    </item>
+    
+    <item>
+      <title>Prerequisites</title>
+      <link>/en/gettingstarted/prereqisites.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:49 -0600</pubDate>
+      
+      <guid>/en/gettingstarted/prereqisites.html</guid>
+      <description>In your Cloud 9 environment, clone the Git repo:  git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/graviton2-labs cd graviton2-labs Upgrade AWS CLI according to guidance in AWS documentation.  sudo pip install --upgrade awscli &amp;amp;&amp;amp; hash -r Install jq, envsubst (from GNU gettext utilities) and bash-completion  sudo yum -y install jq gettext bash-completion moreutils Install mysql client and libraries  sudo yum -y localinstall https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm sudo yum -y install mysql-community-client mysql-community-libs Install the required Kubernetes tools for interacting with the EKS cluster.</description>
+    </item>
+    
+    <item>
+      <title>AmazonEKS : Deploy multi-architecture EKS cluster</title>
+      <link>/en/amazoncontainers/amazoneks/ekscluster.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazoncontainers/amazoneks/ekscluster.html</guid>
+      <description>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that you can use to run Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes. Kubernetes is an open-source system for automating the deployment, scaling, and management of containerized applications.
+ Start by reviewing the contents of the CDK stack definition in file graviton-labs/graviton2/cs_graviton/eks_graviton2.py. This stack will create an EKS cluster with two nodegroups: x86-node-group and arm64-node-group.</description>
+    </item>
+    
+    <item>
+      <title>Restore your snapshot to Graviton2 instance</title>
+      <link>/en/amazonrds/01_snapshot/restoringrds.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazonrds/01_snapshot/restoringrds.html</guid>
+      <description>We&amp;rsquo;re ready to restore our database to new Graviton2-based instance. Start by reviewing contents of the RDS MySQL 8 database definition in file graviton2_labs/rds_graviton/ds_restore.py
+ snapshot_id = ssm.StringParameter.value_for_string_parameter(self ,&amp;quot;graviton_rds_lab_snapshot&amp;quot;) g2_db_mysql8 = rds.DatabaseInstanceFromSnapshot(self, &amp;quot;GravitonMySQL&amp;quot;, engine=rds.DatabaseInstanceEngine.mysql( version=rds.MysqlEngineVersion.VER_8_0_21 ), instance_type=ec2.InstanceType(&amp;quot;m6g.4xlarge&amp;quot;), snapshot_identifier=snapshot_id, vpc=vpc, multi_az=False, publicly_accessible=True, allocated_storage=100, storage_type=rds.StorageType.IO1, iops=5000, cloudwatch_logs_exports=[&amp;quot;error&amp;quot;, &amp;quot;general&amp;quot;, &amp;quot;slowquery&amp;quot;], enable_performance_insights=True, deletion_protection=False, delete_automated_backups=True, backup_retention=core.Duration.days(1), vpc_subnets={ &amp;quot;subnet_type&amp;quot;: ec2.SubnetType.PUBLIC }, parameter_group=rds.ParameterGroup.from_parameter_group_name( self, &amp;quot;para-group-mysql&amp;quot;, parameter_group_name=&amp;quot;default.mysql8.0&amp;quot; ) )  We&amp;rsquo;ll use the snapshot we created from original x86 instance to restore new Graviton2 database.</description>
+    </item>
+    
+    <item>
+      <title>Upgrading RDS MySQL database version</title>
+      <link>/en/amazonrds/02_upgrade/upgradingmysq.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazonrds/02_upgrade/upgradingmysq.html</guid>
+      <description>When Amazon RDS starts supporting a new version of a database engine, you can upgrade your DB instances to the new version. There are two kinds of upgrades for MySQL DB instances: major version upgrades and minor version upgrades.
+Major version upgrades can contain database changes that are not backward-compatible with existing applications. As a result, you must manually perform major version upgrades of your DB instances. You can initiate a major version upgrade by modifying your DB instance.</description>
+    </item>
+    
+    <item>
+      <title>AmazonEKS : Deploy a multi-architecture application</title>
+      <link>/en/amazoncontainers/amazoneks/k8sapplication.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazoncontainers/amazoneks/k8sapplication.html</guid>
+      <description>Now you&amp;rsquo;re ready to deploy a multi-architecture Kubernetes Application.
+ Start by reviewing contents of the Kubernetes deployment manifest in file graviton2-labs/graviton2/cs_graviton/Deployment.yaml  apiVersion: apps/v1 kind: Deployment metadata: name: multiarch-deployment namespace: multiarch labels: app: multiarch-app spec: replicas: 4 selector: matchLabels: app: multiarch-app template: metadata: labels: app: multiarch-app spec: affinity: nodeAffinity: requiredDuringSchedulingIgnoredDuringExecution: nodeSelectorTerms: - matchExpressions: - key: beta.kubernetes.io/arch operator: In values: - amd64 - arm64 podAntiAffinity: requiredDuringSchedulingIgnoredDuringExecution: - labelSelector: matchExpressions: - key: app operator: In values: - multiarch-app topologyKey: &amp;#34;kubernetes.</description>
+    </item>
+    
+    <item>
+      <title>Changing instance to Graviton2</title>
+      <link>/en/amazonrds/02_upgrade/modyfyinginstancetype.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazonrds/02_upgrade/modyfyinginstancetype.html</guid>
+      <description>You can change the settings of a DB instance to accomplish tasks such as adding additional storage or changing the DB instance class. This includes switchin from x86 instances to Graviton2 instance type.
+We recommend that you test any changes on a test instance before modifying a production instance, so that you fully understand the impact of each change. As mentioned in previous chapter, testing is especially important when upgrading database versions.</description>
+    </item>
+    
+    <item>
+      <title>EMR Cleanup</title>
+      <link>/en/amazonemr/cleanup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/amazonemr/cleanup.html</guid>
+      <description>To cleanup the EMR cluster please execute following command :
+aws emr terminate-clusters --cluster-ids $EMR_CLUSTER_ID After reviewing the contents of S3 bucket you can elect to empty and delete job outputs via AWS S3 console or using CLI.</description>
+    </item>
+    
+    <item>
+      <title>AmazonEKS : Running ASP.NET Core application on Graviton2</title>
+      <link>/en/amazoncontainers/amazoneks/aspnet.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazoncontainers/amazoneks/aspnet.html</guid>
+      <description>One of the great strengths of the .NET Core platform .NET 5 is signifcant improvement in runtime performance and that .NET is ready for scalable modernization efforts. Customers can also choose to build their .NET Core platform with AWS purpose-built AWS Graviton2 Processor. AWS is the only major cloud provider that enables .NET 5 an ARM64 architecture option today. Amazon EC2 instances running AWS Graviton2 provide up to 40% better price performance over comparable current generation x86-based instances.</description>
+    </item>
+    
+    <item>
+      <title>AmazonECS : Deploy Graviton2 ECS cluster</title>
+      <link>/en/amazoncontainers/amazonecs/ecscluster.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazoncontainers/amazonecs/ecscluster.html</guid>
+      <description>Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast container management service that makes it easy to run, stop, and manage containers on a cluster. Your containers are defined in a task definition that you use to run individual tasks or tasks within a service. Amazon ECS enables you to launch and stop your container-based applications by using simple API calls. You can also retrieve the state of your cluster from a centralized service and have access to many familiar Amazon EC2 features.</description>
+    </item>
+    
+    <item>
+      <title>Graviton2 and Containers: Cleanup</title>
+      <link>/en/amazoncontainers/cleanup.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/en/amazoncontainers/cleanup.html</guid>
+      <description>Execute following commands to clean up the environment.
+cd ~/environment/graviton2-labs/ scripts/cs_cleanup.sh </description>
+    </item>
+    
+  </channel>
+</rss>

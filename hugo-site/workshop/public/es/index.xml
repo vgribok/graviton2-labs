@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OptimizaciÃ³n de costos con servicios basados en AWS Graviton2 on Graviton2</title>
+    <link>/es/</link>
+    <description>Recent content in OptimizaciÃ³n de costos con servicios basados en AWS Graviton2 on Graviton2</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 29 Jul 2020 13:28:27 -0600</lastBuildDate><atom:link href="/es/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Crear el pipeline de construcciÃ³n del contenedor</title>
+      <link>/es/amazoncontainers/creatingpipeline.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazoncontainers/creatingpipeline.html</guid>
+      <description>Comenzaremos creando un pipeline para construir imagenes de contenedor soportadas por mÃºltiples arquitecturas. El crear imagenes tanto para arquitecturas x86 como para arm64 nos permitirÃ¡n explorar el soporte nativo de los servicios de AWS para multi-arquitectura y nos permitirÃ¡ movernos a la opciÃ³n mÃ¡s Ã³ptima para nuestra carga de trabajo.
+El stack de CDJ que implementarÃ¡s crearÃ¡ un repositorio de cÃ³difo para la aplicaciÃ³n hecha en NodeJS y dos pasos de construcciÃ³n para crear las imagenes de contenedor para arquitecturas x86 como para arm64.</description>
+    </item>
+    
+    <item>
+      <title>Crear la instancia de RDS MySQL</title>
+      <link>/es/amazonrds/01_snapshot/creatingcluster8.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazonrds/01_snapshot/creatingcluster8.html</guid>
+      <description>Empieza revisando los contenidos de stack de definicion de RDS MySQL 8 CDK. El archivo estÃ¡ en la siguiente ruta: graviton2_labs/rds_graviton/rds_mysql_8.py
+ db_mysql8 = rds.DatabaseInstance(self, &amp;quot;MySQL8&amp;quot;, engine=rds.DatabaseInstanceEngine.mysql( version=rds.MysqlEngineVersion.VER_8_0_21 ), instance_type=ec2.InstanceType(&amp;quot;m5.4xlarge&amp;quot;), vpc=vpc, multi_az=False, publicly_accessible=True, allocated_storage=100, storage_type=rds.StorageType.IO1, iops=5000, cloudwatch_logs_exports=[&amp;quot;error&amp;quot;, &amp;quot;general&amp;quot;, &amp;quot;slowquery&amp;quot;], deletion_protection=False, enable_performance_insights=True, delete_automated_backups=True, backup_retention=core.Duration.days(1), parameter_group=rds.ParameterGroup.from_parameter_group_name( self, &amp;quot;para-group-mysql&amp;quot;, parameter_group_name=&amp;quot;default.mysql8.0&amp;quot; ) )  AWS Cloud Development Kit (CDK) simplifica la creaciÃ³n de servicios en AWS como por ejemplo crear instancias de Amazon RDS. El fragmento de cÃ³digo escrito en Python de arriba te permite crear una instancia de RDS MySQL 8 con 100GB y un volumen Amazon EBS de tipo IO1 en una Ãºnica zona de disponibilidad (single-AZ).</description>
+    </item>
+    
+    <item>
+      <title>Crear la instancia de RDS MySQL</title>
+      <link>/es/amazonrds/02_upgrade/creatingcluster5.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazonrds/02_upgrade/creatingcluster5.html</guid>
+      <description>Revisa los contenidos de la definiciÃ³n del task en RDS MySQL 5, encontraras el archivo en labs/rds_graviton/rds_mysql_5.py
+ db_mysql5 = rds.DatabaseInstance(self, &amp;quot;MySQL5&amp;quot;, engine=rds.DatabaseInstanceEngine.mysql( version=rds.MysqlEngineVersion.VER_5_7_31 ), instance_type=ec2.InstanceType(&amp;quot;m5.4xlarge&amp;quot;), vpc=vpc, multi_az=False, publicly_accessible=True, allocated_storage=100, storage_type=rds.StorageType.GP2, cloudwatch_logs_exports=[&amp;quot;audit&amp;quot;, &amp;quot;error&amp;quot;, &amp;quot;general&amp;quot;, &amp;quot;slowquery&amp;quot;], deletion_protection=False, enable_performance_insights=True, delete_automated_backups=True, backup_retention=core.Duration.days(1), parameter_group=rds.ParameterGroup.from_parameter_group_name( self, &amp;quot;para-group-mysql&amp;quot;, parameter_group_name=&amp;quot;default.mysql5.7&amp;quot; ) )  AWS Cloud Development Kit (CDK) simplifica la creaciÃ³n de servicios en AWS como por ejemplo crear instancias de Amazon RDS. El fragmento de cÃ³digo escrito en Python de arriba te permite crear una instancia de RDS MySQL 5 con 100GB y un volumen Amazon EBS de tipo GP2 en una Ãºnica zona de disponibilidad (single-AZ).</description>
+    </item>
+    
+    <item>
+      <title>Creando un Cluster de Amazon EMR con instancias Graviton2</title>
+      <link>/es/amazonemr/creatingcluster.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/es/amazonemr/creatingcluster.html</guid>
+      <description>Crea el bucket de s3 para los jobs de EMR  cd ~/environment/graviton2-labs source scripts/create_emr_buckets.sh Ejecuta el siguiente comando para crear el clÃºster de EMR en tu VPC default  export EMR_CLUSTER_ID=$(aws emr create-cluster --name test-emr-cluster --use-default-roles --release-label emr-6.1.0 --instance-count 3 --instance-type m6g.xlarge --applications Name=JupyterHub Name=Spark --ec2-attributes KeyName=graviton2key | jq -r &amp;#39;.ClusterId&amp;#39;); echo &amp;#34;Your cluster ID is = $EMR_CLUSTER_ID&amp;#34; Autoriza conexiÃ³n ssh desde tu instancia de Cloud9  export C9_PRIVATEIP=$(curl -s 169.</description>
+    </item>
+    
+    <item>
+      <title>ConstrucciÃ³n multi-arquitectura de la aplicaciÃ³n</title>
+      <link>/es/amazoncontainers/multiarchitecture.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazoncontainers/multiarchitecture.html</guid>
+      <description>Antes de iniciar este laboratorio, por favor asegÃºrate de trabajar en la carpeta graviton2-labs. Si no estas ahÃ­, cÃ¡mbiate a esa carpeta ejecutando el siguiente comando en tu terminal:  cd ~/environment/graviton2-labs/ Clona un repositorio vacÃ­o de CodeCommit ejecutando:  git clone `aws cloudformation describe-stacks --stack-name GravitonID-pipeline --query &amp;#34;Stacks[0].Outputs[0].OutputValue&amp;#34; --output text` Copia los archivos de especificaciÃ³n de code build y el cÃ³digo fuente de la aplicaciÃ³n hecha en NodeJS hacia el nuevo repositorio de CodeCommit.</description>
+    </item>
+    
+    <item>
+      <title>Importar Datos de prueba a MySQL</title>
+      <link>/es/amazonrds/01_snapshot/loadingdata.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazonrds/01_snapshot/loadingdata.html</guid>
+      <description>Antes de iniciar este laboratorio, asegurate de estar en el directorio graviton2-labs. Si noe estas ahÃ­ ejecuta este comando en la terminal de Cloud9:  cd ~/environment/graviton2-labs/ Clona la base de datos de ejemplo de MySQL.
+git clone https://github.com/datacharmer/test_db.git cd test_db Al terminar, conectate a tu instancia de MySQL ejecutando el siguiente comando:  mysql -h $DBHOST -P $DBPORT -u$DBUSER -p$DBPASS Si experimentas problemas en la conneciÃ³n debido a la falta de las variables de ambiente ejecuta el siguiente cÃ³digo para configurar las credenciales.</description>
+    </item>
+    
+    <item>
+      <title>Importar Datos de prueba a MySQL</title>
+      <link>/es/amazonrds/02_upgrade/loadingdata.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazonrds/02_upgrade/loadingdata.html</guid>
+      <description>Antes de iniciar este laboratorio, asegurate de estar en el directorio graviton2-labs. Si noe estas ahÃ­ ejecuta este comando en la terminal de Cloud9:  cd ~/environment/graviton2-labs/ Clona la base de datos de ejemplo de MySQL.
+git clone https://github.com/datacharmer/test_db.git cd test_db Al terminar, conectate a tu instancia de MySQL ejecutando el siguiente comando:  mysql -h $DBHOST -P $DBPORT -u$DBUSER -p$DBPASS Si experimentas problemas en la conneciÃ³n debido a la falta de las variables de ambiente ejecuta el siguiente cÃ³digo para configurar las credenciales.</description>
+    </item>
+    
+    <item>
+      <title>Prerequisitos</title>
+      <link>/es/gettingstarted/prereqisites.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:49 -0600</pubDate>
+      
+      <guid>/es/gettingstarted/prereqisites.html</guid>
+      <description>En tu ambiente de Cloud9 clona el siguiente repositorio de Git:  git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/graviton2-labs cd graviton2-labs Actualiza la AWS CLI de acuerdo a la guia en la documentaciÃ³n AWS documentation.  sudo pip install --upgrade awscli &amp;amp;&amp;amp; hash -r Instala jq, envsubst (de las utilerÃ­as de GNU gettext), tambÃ­en instala bash-completion.  sudo yum -y install jq gettext bash-completion moreutils Instala el cliente de mysql y sus librerias.  sudo yum -y localinstall https://dev.</description>
+    </item>
+    
+    <item>
+      <title>Actualizando la version del motor de MySQL RDS</title>
+      <link>/es/amazonrds/02_upgrade/upgradingmysq.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazonrds/02_upgrade/upgradingmysq.html</guid>
+      <description>Cuando Amazon RDS soporte nuevas versiones de un motor de bases de datos podrÃ¡s comenzar con el proceso de actualizaciÃ³n de instancias de bases de datos. Existen dos tipos de actializaciones para instancias de bases de datos con MySQL: major version upgrades y minor version upgrades.
+Major version upgrades o actualizaciones de version mayores pueden contener cambios en el motor que no permiten tener retrocompatibilidad con versiones o aplicaciones anteriores. Como resiltando de esto, estos cambios deberan de ejecutarse de forma manual en tus instancias de bases de datos y puedes hacerlos al modificar tu instancia de bases de datos.</description>
+    </item>
+    
+    <item>
+      <title>AmazonEKS : CreaciÃ³n de un cluster EKS multi-arquitectura</title>
+      <link>/es/amazoncontainers/amazoneks/ekscluster.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazoncontainers/amazoneks/ekscluster.html</guid>
+      <description>Amazon Elastic Kubernetes Service (Amazon EKS) es un servicio administrado que puedes utilizar para ejecutar Kubernetes en aws sin necesidad de instalar, operar y mantener tu propio plano de control o nodos de un clÃºster. Kubernetes es un sistema de cÃ³digo abierto para automatizar la implementaciÃ³n, escalabilidad y orquestaciÃ³n de aplicaciones containerizadas.
+ Revisa el contenido del stack de CDK localizado en el archivo graviton-labs/graviton2/cs_graviton/eks_graviton2.py. Este stack crearÃ¡ un cluster de EKS con dos nodegroups: un grupo para arquitectura x86 y otro para arquitectura ARM64   self.</description>
+    </item>
+    
+    <item>
+      <title>RecuperaciÃ³n del snapshot de la instancia con Graviton2</title>
+      <link>/es/amazonrds/01_snapshot/restoringrds.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazonrds/01_snapshot/restoringrds.html</guid>
+      <description>Ya estamos listos para hacer la recuperaciÃ³n de la base de datos a una nueva en una instancia con Graviton2. Revisa los contenidos del archivo de definicion de la instancia de bases de datos RDS MySQL 8 que se encuentra en la ruta graviton2_labs/rds_graviton/ds_restore.py
+ snapshot_id = ssm.StringParameter.value_for_string_parameter(self ,&amp;quot;graviton_rds_lab_snapshot&amp;quot;) g2_db_mysql8 = rds.DatabaseInstanceFromSnapshot(self, &amp;quot;GravitonMySQL&amp;quot;, engine=rds.DatabaseInstanceEngine.mysql( version=rds.MysqlEngineVersion.VER_8_0_21 ), instance_type=ec2.InstanceType(&amp;quot;m6g.4xlarge&amp;quot;), snapshot_identifier=snapshot_id, vpc=vpc, multi_az=False, publicly_accessible=True, allocated_storage=100, storage_type=rds.StorageType.IO1, iops=5000, cloudwatch_logs_exports=[&amp;quot;error&amp;quot;, &amp;quot;general&amp;quot;, &amp;quot;slowquery&amp;quot;], enable_performance_insights=True, deletion_protection=False, delete_automated_backups=True, backup_retention=core.</description>
+    </item>
+    
+    <item>
+      <title>AmazonEKS : ImplementaciÃ³n de una aplicaciÃ³n multi-arquitectura</title>
+      <link>/es/amazoncontainers/amazoneks/k8sapplication.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazoncontainers/amazoneks/k8sapplication.html</guid>
+      <description>Ahora estamos listos para implementar una aplicaciÃ³n multi-arquitectura sobre kubernetes
+ Revisa el contenido del manifiesto de implementaciÃ³n de kubernetes en el archivo: graviton2-labs/graviton2/cs_graviton/Deployment.yaml  apiVersion: apps/v1 kind: Deployment metadata: name: multiarch-deployment namespace: multiarch labels: app: multiarch-app spec: replicas: 4 selector: matchLabels: app: multiarch-app template: metadata: labels: app: multiarch-app spec: affinity: nodeAffinity: requiredDuringSchedulingIgnoredDuringExecution: nodeSelectorTerms: - matchExpressions: - key: beta.kubernetes.io/arch operator: In values: - amd64 - arm64 podAntiAffinity: requiredDuringSchedulingIgnoredDuringExecution: - labelSelector: matchExpressions: - key: app operator: In values: - multiarch-app topologyKey: &amp;#34;kubernetes.</description>
+    </item>
+    
+    <item>
+      <title>Cambiando el tipo de instancia a Graviton2</title>
+      <link>/es/amazonrds/02_upgrade/modyfyinginstancetype.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazonrds/02_upgrade/modyfyinginstancetype.html</guid>
+      <description>Puedes cambiar la configuraciÃ³n de la instancia de la base de datos y agregar almacenamiento adicional o cambiar el tipo de la instancia. Esto incluye cambiar de una instancia con arquitectura x86 a un tipo de instancia con Graviton2 y arquitectura arm.
+Te recomendamos que pruebes cualquier cambio en instancias de prueba antes de hacer cambios a una productiva de manera que entiendas perfectamente el impacto de cualquier cambio. Como se menciona en el capitulo anterior, realizar estas pruebas es importante cuando se actualizan versiones del motor de bases de datos.</description>
+    </item>
+    
+    <item>
+      <title>Limpieza del laboratorio de EMR</title>
+      <link>/es/amazonemr/cleanup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/es/amazonemr/cleanup.html</guid>
+      <description>Para limpiar el laboratorio de EMR por favor ejecute el siguiente comando, el cual eliminarÃ¡ el clÃºster y los nodos que lo componen:
+aws emr terminate-clusters --cluster-ids $EMR_CLUSTER_ID DespuÃ©s de revisar el contenido en el bucket de S3 puedes elegir el borrar la salida del job o el bucket completo utilizando la consola web o la lÃ­nea de comando.</description>
+    </item>
+    
+    <item>
+      <title>AmazonEKS : Ejecutando aplicaciones hechas en ASP.NET Core sobre Graviton2</title>
+      <link>/es/amazoncontainers/amazoneks/aspnet.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazoncontainers/amazoneks/aspnet.html</guid>
+      <description>Una de las grandes fortalezas de la plataforma .NET Core es que .NET 5 tiene mejoras significativas en rendimiento y estÃ¡ listo para esfuerzos de modernizaciÃ³n escalables. Los clientes pueden tambiÃ©n elegir construir sus aplicaciones hechas en .NET Core utilizando el procesador AWS Graviton2. AWS es el Ãºnico proveedor de nube que ofrece la opciÃ³n de ejecutar cargas de trabajo en .NET sobre arquitecturas ARM64 Las instncias EC2 que son ejecutadas con AWS Graviton2 proveen hasta un 40% en mejora de precio/rendimiento sobre generaciones actuales de instancias basadas en x86.</description>
+    </item>
+    
+    <item>
+      <title>AmazonECS : Implementando un cluster de ECS con instancias Graviton2</title>
+      <link>/es/amazoncontainers/amazonecs/ecscluster.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazoncontainers/amazonecs/ecscluster.html</guid>
+      <description>Amazon Elastic Container Service (Amazon ECS) es un servicio de manejo de contenedores altamente escalable y rÃ¡pido que hace sencilla la ejecuciÃ³n, escalabilidad y el manejo de contenedores en un cluster. Tus contenedores estÃ¡n definidos en una &amp;ldquo;definiciÃ³n de tarea&amp;rdquo; que utilizarÃ¡s para ejecutar &amp;ldquo;tareas&amp;rdquo; individuales o &amp;ldquo;tareas&amp;rdquo; como parte de un &amp;ldquo;servicio&amp;rdquo;. Amazon ECS te permite inicializar y detener tus aplicaciones basadas en contenedires utilizando llamadas de API muy simples.</description>
+    </item>
+    
+    <item>
+      <title>Graviton2 y contenedores: Limpieza</title>
+      <link>/es/amazoncontainers/cleanup.html</link>
+      <pubDate>Fri, 10 Apr 2020 11:14:51 -0600</pubDate>
+      
+      <guid>/es/amazoncontainers/cleanup.html</guid>
+      <description>Ejecuta los siguientes comandos para limpliar el ambiente de trabajo.
+cd ~/environment/graviton2-labs/ scripts/cs_cleanup.sh </description>
+    </item>
+    
+  </channel>
+</rss>

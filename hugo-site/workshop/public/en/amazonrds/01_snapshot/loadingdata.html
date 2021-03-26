@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+<html lang="en" class="js csstransforms3d">
+<head>
+  <meta charset="utf-8">
+  <meta property="og:title" content="Graviton2" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="description" content="My AWS Workshop">
+<meta name="author" content="Amazon AWS">
+
+  <link rel="shortcut icon" href="https://a0.awsstatic.com/libra-css/images/site/fav/favicon.ico" type="image/ico" />
+<link rel="icon" href="https://a0.awsstatic.com/libra-css/images/site/fav/favicon.ico" type="image/ico" />
+
+  <title>Import Sample Database :: Graviton2</title>
+
+  
+  <link href="../../../css/nucleus.css" rel="stylesheet">
+  <link href="../../../css/fontawesome-all.min.css" rel="stylesheet">
+  <link href="../../../css/hybrid.css" rel="stylesheet">
+  <link href="../../../css/featherlight.min.css" rel="stylesheet">
+  <link href="../../../css/perfect-scrollbar.min.css" rel="stylesheet">
+  <link href="../../../css/auto-complete.css" rel="stylesheet">
+  <link href="../../../css/atom-one-dark-reasonable.css" rel="stylesheet">
+  <link href="../../../css/theme.css" rel="stylesheet">
+  <link href="../../../css/hugo-theme.css" rel="stylesheet">
+  
+  <link href="../../../css/theme-aws.css" rel="stylesheet">
+  
+
+  <script src="../../../js/jquery-3.5.1.min.js"></script>
+
+  <style>
+    :root #header + #content > #left > #rlblock_left{
+        display:none !important;
+    }
+    
+      :not(pre) > code + span.copy-to-clipboard {
+          display: none;
+      }
+    
+  </style>
+  
+</head>
+
+<body class="" data-url="../../../en/amazonrds/01_snapshot/loadingdata.html">
+  <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <div>
+    <a href="../../../" title="Go home">
+        <img style="vertical-align:middle" src="https://fonts.workshops.aws/logos/logo.png" height="70px" />
+    </a>
+</div>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../../js/lunr.min.js"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/en";
+    
+</script>
+<script type="text/javascript" src="../../../js/search.js"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/gettingstarted.html" title="Getting Started" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../en/gettingstarted.html">
+          Getting Started
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/gettingstarted/prereqisites.html" title="Prerequisites" class="dd-item ">
+        <a href="../../../en/gettingstarted/prereqisites.html">
+        Prerequisites
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/amazoncontainers.html" title="Graviton2 and containers" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../en/amazoncontainers.html">
+          Graviton2 and containers
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/amazoncontainers/creatingpipeline.html" title="Create container build pipeline" class="dd-item ">
+        <a href="../../../en/amazoncontainers/creatingpipeline.html">
+        Create container build pipeline
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/amazoncontainers/multiarchitecture.html" title="Multi-architecture application build" class="dd-item ">
+        <a href="../../../en/amazoncontainers/multiarchitecture.html">
+        Multi-architecture application build
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/amazoncontainers/amazoneks/ekscluster.html" title="AmazonEKS : Deploy multi-architecture EKS cluster" class="dd-item ">
+        <a href="../../../en/amazoncontainers/amazoneks/ekscluster.html">
+        AmazonEKS : Deploy multi-architecture EKS cluster
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/amazoncontainers/amazoneks/k8sapplication.html" title="AmazonEKS : Deploy a multi-architecture application" class="dd-item ">
+        <a href="../../../en/amazoncontainers/amazoneks/k8sapplication.html">
+        AmazonEKS : Deploy a multi-architecture application
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/amazoncontainers/amazoneks/aspnet.html" title="AmazonEKS : Running ASP.NET Core application on Graviton2" class="dd-item ">
+        <a href="../../../en/amazoncontainers/amazoneks/aspnet.html">
+        AmazonEKS : Running ASP.NET Core application on Graviton2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/amazoncontainers/amazonecs/ecscluster.html" title="AmazonECS : Deploy Graviton2 ECS cluster" class="dd-item ">
+        <a href="../../../en/amazoncontainers/amazonecs/ecscluster.html">
+        AmazonECS : Deploy Graviton2 ECS cluster
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/amazoncontainers/cleanup.html" title="Graviton2 and Containers: Cleanup" class="dd-item ">
+        <a href="../../../en/amazoncontainers/cleanup.html">
+        Graviton2 and Containers: Cleanup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/amazonrds.html" title="Graviton2 and databases" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="../../../en/amazonrds.html">
+          Graviton2 and databases
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/amazonrds/01_snapshot.html" title="Option 1: Restoring Graviton2 MySQL RDS database from x86 snapshot" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="../../../en/amazonrds/01_snapshot.html">
+          Option 1: Restoring Graviton2 MySQL RDS database from x86 snapshot
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/amazonrds/01_snapshot/creatingcluster8.html" title="Create RDS MySQL instance" class="dd-item ">
+        <a href="../../../en/amazonrds/01_snapshot/creatingcluster8.html">
+        Create RDS MySQL instance
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/amazonrds/01_snapshot/loadingdata.html" title="Import Sample Database" class="dd-item active">
+        <a href="../../../en/amazonrds/01_snapshot/loadingdata.html">
+        Import Sample Database
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/amazonrds/01_snapshot/restoringrds.html" title="Restore your snapshot to Graviton2 instance" class="dd-item ">
+        <a href="../../../en/amazonrds/01_snapshot/restoringrds.html">
+        Restore your snapshot to Graviton2 instance
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/amazonrds/02_upgrade.html" title="Option 2 : MySQL RDS upgrade" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../en/amazonrds/02_upgrade.html">
+          Option 2 : MySQL RDS upgrade
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/amazonrds/02_upgrade/creatingcluster5.html" title="Create RDS MySQL instance" class="dd-item ">
+        <a href="../../../en/amazonrds/02_upgrade/creatingcluster5.html">
+        Create RDS MySQL instance
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/amazonrds/02_upgrade/loadingdata.html" title="Import Sample Database" class="dd-item ">
+        <a href="../../../en/amazonrds/02_upgrade/loadingdata.html">
+        Import Sample Database
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/amazonrds/02_upgrade/upgradingmysq.html" title="Upgrading RDS MySQL database version" class="dd-item ">
+        <a href="../../../en/amazonrds/02_upgrade/upgradingmysq.html">
+        Upgrading RDS MySQL database version
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/amazonrds/02_upgrade/modyfyinginstancetype.html" title="Changing instance to Graviton2" class="dd-item ">
+        <a href="../../../en/amazonrds/02_upgrade/modyfyinginstancetype.html">
+        Changing instance to Graviton2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/amazonemr.html" title="Graviton2 and big data" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../en/amazonemr.html">
+          Graviton2 and big data
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/amazonemr/creatingcluster.html" title="Creating EMR Claster with Graviton2 instanaces" class="dd-item ">
+        <a href="../../../en/amazonemr/creatingcluster.html">
+        Creating EMR Claster with Graviton2 instanaces
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/en/amazonemr/cleanup.html" title="EMR Cleanup" class="dd-item ">
+        <a href="../../../en/amazonemr/cleanup.html">
+        EMR Cleanup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/en/amazonrds/01_snapshot/loadingdata.html" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="es" value="/es/amazonrds/01_snapshot/loadingdata.html">Spanish</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+
+    <a href="https://aws.amazon.com/privacy/?nc1=f_pr">Privacy</a> | <a href="https://aws.amazon.com/terms/?nc1=f_pr">Site Terms</a> | © 2021, Amazon Web Services, Inc. or its affiliates. All rights reserved. 
+
+</left>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+  <section id="body">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        <div id="top-bar">
+          
+          
+          <div id="breadcrumbs" itemscope="" itemtype="https://data-vocabulary.org/Breadcrumb">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                <i class="fa fa-bars"></i>
+              </a>
+            </span>
+            
+            <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+            
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href='../../../en/'>Optimizing cost with AWS Graviton2 based services</a> > <a href='../../../en/amazonrds.html'>Graviton2 and databases</a> > <a href='../../../en/amazonrds/01_snapshot.html'>Option 1: Restoring Graviton2 MySQL RDS database from x86 snapshot</a> > Import Sample Database
+          
+          
+          
+          
+          
+          
+          
+          
+            </span>
+          </div>
+          
+          <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+          
+        </div>
+      </div>
+      
+
+      
+        <div id="body-inner">
+          <h1>Import Sample Database</h1>
+          
+          
+
+<ol>
+<li>Before we start this lab, please make sure you are working in your graviton2-labs folder.
+If you are not, please change to the folder by executing the following command in your bash shell :</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/environment/graviton2-labs/
+</code></pre></div><p>We&rsquo;ll start by cloning a sample database for MySQL.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/datacharmer/test_db.git
+cd test_db
+</code></pre></div><ol start="2">
+<li>After you have done this, please connect to your MySQL instance. Run the following command to connect to your MySQL instance:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql -h $DBHOST -P $DBPORT -u$DBUSER -p$DBPASS
+</code></pre></div><p>If you are experiencing log in issues due to the lack of environment variables, please use the following commands to set the credentials.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">CREDS<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>aws secretsmanager get-secret-value --secret-id <span style="color:#e6db74">`</span>aws cloudformation describe-stacks --stack-name GravitonID-rds-8 --query <span style="color:#e6db74">&#34;Stacks[0].Outputs[0].OutputValue&#34;</span> --output text<span style="color:#e6db74">`</span> | jq -r <span style="color:#e6db74">&#39;.SecretString&#39;</span><span style="color:#66d9ef">)</span>
+export DBUSER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;`echo </span>$CREDS<span style="color:#e6db74"> | jq -r &#39;.username&#39;`&#34;</span>
+export DBPASS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;`echo </span>$CREDS<span style="color:#e6db74"> | jq -r &#39;.password&#39;`&#34;</span>
+export DBHOST<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;`echo </span>$CREDS<span style="color:#e6db74"> | jq -r &#39;.host&#39;`&#34;</span>
+export DBPORT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;`echo </span>$CREDS<span style="color:#e6db74"> | jq -r &#39;.port&#39;`&#34;</span>
+echo $DBUSER
+echo $DBPASS
+echo $DBHOST
+echo $DBPORT
+</code></pre></div><ol start="3">
+<li>If you are logged in to your MySQL instance you can load a sample database to your RDS instance.
+To load the date  into the database, run the following command from your MySQL client.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">source employees.sql
+</code></pre></div><p>The engine should start loading the data on its own and you should see outputs similar to:</p>
+<pre><code>Query OK, 7671 rows affected (0.05 sec)
+Records: 7671  Duplicates: 0  Warnings: 0
+
++---------------------+
+| data_load_time_diff |
++---------------------+
+| 00:00:33            |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql&gt; 
+</code></pre><ol start="4">
+<li>Verify the employees table checksum by running :</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">use employees; checksum table employees;
+</code></pre></div><p>You should see the output similar to one below. Please write down the checksum value for original
+database table checksum.</p>
+<pre><code>+---------------------+-----------+
+| Table               | Checksum  |
++---------------------+-----------+
+| employees.employees | 610052939 |
++---------------------+-----------+
+1 row in set (0.24 sec)
+</code></pre><ol start="5">
+<li>Exit MySQL client and create database snapshot by executing following command:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/environment/graviton2-labs/
+ ~/environment/graviton2-labs/scripts/rds-snapshot.sh 
+</code></pre></div><p>The script will return a randomly generated snapshot id.</p>
+<ol start="6">
+<li>Please monitor the snapshot progress using AWS console or by executing following command :</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws rds describe-db-snapshots --db-snapshot-identifier <span style="color:#e6db74">`</span>aws ssm get-parameter --name <span style="color:#e6db74">&#34;graviton_rds_lab_snapshot&#34;</span> | jq -r .Parameter.Value<span style="color:#e6db74">`</span> | jq -r .DBSnapshots<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>.Status
+</code></pre></div><ol start="7">
+<li>When snapshot status changes to &ldquo;available&rdquo; you can procedd to the next chapter.</li>
+</ol>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../../en/amazonrds/01_snapshot/creatingcluster8.html" title="Create RDS MySQL instance"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../../en/amazonrds/01_snapshot/restoringrds.html" title="Restore your snapshot to Graviton2 instance" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../../js/clipboard.min.js"></script>
+    <script src="../../../js/perfect-scrollbar.min.js"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../../../js/jquery.sticky.js"></script>
+    <script src="../../../js/featherlight.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../../js/modernizr.custom-3.6.0.js"></script>
+    <script src="../../../js/learn.js"></script>
+    <script src="../../../js/hugo-learn.js"></script>
+    
+        
+            <script src="../../../mermaid/mermaid.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+  </body>
+</html>
+
